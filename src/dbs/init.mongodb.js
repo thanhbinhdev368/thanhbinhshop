@@ -11,9 +11,7 @@ class Database {
         }).then((result) => {
             console.log('connected mongodb success');
         }).catch((err) => {
-            console.log(
-                'error connect'
-            );
+            console.log('error connect');
         });
     }
     static getInstance() {
