@@ -1,6 +1,8 @@
 const app = require('./src/app')
-const server = app.listen(3066, () =>{
-    console.log('server running on port 3066');
+const dotenv = require("dotenv")
+dotenv.config()
+const server = app.listen(process.env.PORT, () =>{
+    console.log('server running' );
 })
 process.on('SIGINT', () => {
     server.close(() => {
