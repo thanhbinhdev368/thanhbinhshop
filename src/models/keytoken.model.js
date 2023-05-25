@@ -17,14 +17,12 @@ var keyTokenSchema = new Schema({
         required:true,  
     },
     refreshToken:{
-        type: Array,
-        default: []
+        type: String,
+        require: true
    },
     refreshTokenUsed:{
-        type: String,
-        required:true,
-        enum: ['active', 'inactive'],
-        default: 'inactive'
+        type: Array,
+        default: []
     }
 }, {
     timestamps: true,

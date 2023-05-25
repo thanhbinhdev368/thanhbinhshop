@@ -13,6 +13,6 @@ catch(err) {
 
 }
 }
-module,exports = {
-    createTokenPair
-}
+
+module.exports = {
+    createTokenPair}

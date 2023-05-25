@@ -1,19 +1,25 @@
 const keytokenModel = require("../models/keytoken.model")
 
 class KeyTokenService {
-    static createKeyToken = async({userId, publicKey, privateKey}) => {
-try {
-const keyStore = await keytokenModel.create({
-    user: userId,
+    static createKeyToken = async({userId, publicKey, privateKey, refreshToken}) => {
+const filter = {
+    user: userId
+}
+const update = {
     publicKey,
-    privateKey
-})
-return keyStore
-} catch(err){
-return err
+    privateKey,
+    refreshTokenUsed: [],
+    refreshToken
 }
+const options = {
+    upsert: true,
+    new: true
+}
+const tokens = await keytokenModel.findOneAndUpdate(filter, update, options)
+return tokens
+} 
     }
-}
+
 module.exports = {
     KeyTokenService
 }
